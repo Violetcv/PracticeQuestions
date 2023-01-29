@@ -1,0 +1,18 @@
+/*Write a program to find the sum of the digits of a number using recursion.*/
+#include<stdio.h>
+
+int sumd(int num, int *sum){   
+    *sum+=(num%10);
+    if (num>=10){
+        sumd(num/10, sum);
+    }
+    return *sum;
+}
+
+int main(){
+    int num, sum=0;
+    printf("Enter the Number: ");
+    scanf("%d", &num);
+    printf("The sum of the digits of the number is %d", sumd(num, &sum));
+    return 0;
+}

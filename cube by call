@@ -1,0 +1,14 @@
+/*Write a program to find the cube of a number using function (call by reference).*/
+#include<stdio.h>
+
+double cube(double *num){
+    return *num**num**num;
+}
+
+int main(){
+    double num;
+    printf("Enter the Number: ");
+    scanf("%lf", &num);
+    printf("%lf", cube(&num));
+    return 0;
+}

@@ -1,0 +1,40 @@
+/*Write a program to Find and Replace a substring from a given string.*/
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+    char stri[20], find[20], repl[20], temp[20], newstri[20], end, mainend, found=1;
+    printf("Enter the Main string: ");
+    scanf("%s", stri);
+    printf("Enter the substring to be found: ");
+    scanf("%s", find);
+    printf("Enter the substring to be replaced with: ");
+    scanf("%s", repl);
+    
+    for (int i=0; i<=(strlen(stri)-strlen(find)); ++i){
+        for(int k=0, j=i; k<strlen(find); ++j, ++k){
+            temp[k]=stri[j];
+            end=k;
+        }
+        temp[end+1]='\0';
+        if(!strcmp(find, temp)){
+            for(int k=0, j=i; k<strlen(repl); ++j, ++k){
+                newstri[j]=repl[k];
+                end=j+1;
+            }
+            for(int l=0; stri[i+strlen(find)+l]!='\0'; ++l){
+                newstri[end+l]=stri[i+strlen(find)+l];
+                mainend=end+l;
+            }
+            break;
+        }
+        else {
+            for(int k=0; k<=i; ++k){
+                newstri[k]=stri[k];
+                mainend=k+1;
+            }
+        }    
+    }
+    newstri[mainend+1]='\0';
+    printf("%s", newstri);
+}
